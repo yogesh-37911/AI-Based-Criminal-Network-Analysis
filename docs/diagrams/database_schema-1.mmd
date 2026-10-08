@@ -1,0 +1,91 @@
+erDiagram
+    USERS ||--o{ CASES : creates
+    USERS ||--o{ CASE_MEMBERS : "member of"
+    CASES ||--o{ CASE_MEMBERS : has
+    CASES ||--o{ SUSPECTS : has
+    CASES ||--o{ VICTIMS : has
+    CASES ||--o{ EVIDENCE : contains
+    CASES ||--o{ ENTITIES : contains
+    CASES ||--o{ RELATIONSHIPS : contains
+    CASES ||--o{ TIMELINE_EVENTS : contains
+    CASES ||--o{ ANOMALIES : contains
+    CASES ||--o{ THREAT_INDICATORS : contains
+    CASES ||--o{ REPORTS : has
+    CASES ||--o{ AI_ANALYSIS : has
+    CASES ||--o{ INVESTIGATOR_NOTES : has
+
+    EVIDENCE ||--o{ EVIDENCE_HASHES : "hash history"
+    EVIDENCE ||--o{ CHAIN_OF_CUSTODY : "custody log"
+    EVIDENCE ||--o{ EVIDENCE_CHUNKS : "chunked+embedded"
+
+    ENTITIES ||--o{ ENTITY_ALIASES : "surface forms"
+    ENTITIES ||--o{ RELATIONSHIPS : "source/target"
+    ENTITIES ||--o{ TIMELINE_EVENTS : "involved in"
+    ENTITIES ||--o{ ENTITY_RESOLUTION_CANDIDATES : "potential match"
+
+    USERS ||--o{ AUDIT_LOGS : performs
+    USERS ||--o{ SESSIONS : has
+
+    USERS {
+        uuid id PK
+        string email UK
+        string hashed_password
+        enum role
+        bool mfa_enabled
+        bool is_active
+    }
+    CASES {
+        uuid id PK
+        string case_number UK
+        string title
+        enum status
+        enum priority
+        uuid created_by FK
+    }
+    EVIDENCE {
+        uuid id PK
+        uuid case_id FK
+        string sha256_hash
+        enum status
+        enum provenance
+        text extracted_text
+    }
+    CHAIN_OF_CUSTODY {
+        uuid id PK
+        uuid evidence_id FK
+        uuid investigator_id FK
+        enum action
+        string previous_hash
+        string current_hash
+        timestamp timestamp
+    }
+    ENTITIES {
+        uuid id PK
+        uuid case_id FK
+        enum entity_type
+        string value
+        string normalized_value
+        float confidence_score
+    }
+    RELATIONSHIPS {
+        uuid id PK
+        uuid source_entity_id FK
+        uuid target_entity_id FK
+        enum relationship_type
+        enum confidence_label
+        int weight
+    }
+    EVIDENCE_CHUNKS {
+        uuid id PK
+        uuid evidence_id FK
+        int chunk_index
+        text content
+        vector embedding
+    }
+    ANOMALIES {
+        uuid id PK
+        uuid case_id FK
+        string anomaly_type
+        float anomaly_score
+        string detection_method
+    }

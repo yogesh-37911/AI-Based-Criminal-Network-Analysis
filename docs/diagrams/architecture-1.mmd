@@ -1,0 +1,54 @@
+graph TB
+    subgraph Client
+        FE[Next.js Frontend<br/>React + Tailwind + Cytoscape.js]
+    end
+
+    subgraph API["FastAPI Application (single service, modular routers)"]
+        AUTH[Auth Router<br/>JWT + RBAC]
+        CASE[Case Management Router]
+        EVID[Evidence Router]
+        ANLYS[Analysis Router<br/>NER · Anomaly · Malware]
+        GRAPH[Graph Router]
+        TIME[Timeline Router]
+        AIQ[AI Assistant Router<br/>RAG]
+        TI[Threat Intel Router]
+        REP[Reports Router]
+    end
+
+    subgraph Services["Service Layer (app/services)"]
+        HASH[hashing.py]
+        NER[entity_extraction.py]
+        CORR[correlation_service.py]
+        RES[entity_resolution.py]
+        GSVC[graph_service.py — NetworkX]
+        ANOM[anomaly_service.py — Isolation Forest]
+        RAG[rag_service.py — chunk/embed/retrieve/LLM]
+        MAL[malware_analysis.py]
+        COC[chain_of_custody.py]
+    end
+
+    subgraph Data["Data Layer"]
+        PG[(PostgreSQL<br/>relational schema)]
+        VEC[(pgvector<br/>evidence_chunks embeddings)]
+        FS[(Object/File Storage<br/>uploads/ — S3-compatible in production)]
+    end
+
+    subgraph External["Optional External Integrations"]
+        LLM[Anthropic API]
+        VT[VirusTotal / AbuseIPDB]
+    end
+
+    FE -->|REST, JWT bearer| API
+    AUTH --> PG
+    CASE --> PG
+    EVID --> HASH --> FS
+    EVID --> COC --> PG
+    ANLYS --> NER --> CORR --> PG
+    ANLYS --> ANOM --> PG
+    ANLYS --> MAL --> FS
+    GRAPH --> GSVC --> PG
+    TIME --> PG
+    AIQ --> RAG --> VEC
+    RAG -.->|if configured| LLM
+    TI -.->|if configured| VT
+    RES --> PG

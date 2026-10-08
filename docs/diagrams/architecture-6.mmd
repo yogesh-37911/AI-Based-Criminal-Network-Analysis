@@ -1,0 +1,16 @@
+graph TB
+    subgraph "Docker Compose (single host — hackathon/demo deployment)"
+        NGINX[NGINX reverse proxy<br/>— optional, add for prod]
+        FE2[frontend container<br/>Next.js :3000]
+        BE[backend container<br/>FastAPI/uvicorn :8000]
+        PGC[postgres container<br/>pgvector/pgvector:pg16 :5432]
+        RC[redis container<br/>:6379 — reserved for future Celery use]
+        VOL1[(uploads volume)]
+        VOL2[(postgres data volume)]
+    end
+    FE2 -->|/api proxy rewrite| BE
+    BE --> PGC
+    BE --> VOL1
+    PGC --> VOL2
+    NGINX -.-> FE2
+    NGINX -.-> BE

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 1440 1290" role="img" aria-label="FORGE-AI database entity relationship overview">
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9z" fill="#7890ac"/></marker><filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#12233f" flood-opacity=".10"/></filter></defs>
+<rect width="100%" height="100%" rx="20" fill="#f6f9fd"/>
+<text x="34" y="48" font-family="Inter,Arial,sans-serif" font-size="24" font-weight="700" fill="#12233f">FORGE-AI database relationships</text>
+<text x="34" y="75" font-family="Inter,Arial,sans-serif" font-size="13" fill="#5f6f85">Cases organize investigations; evidence and entities connect to review, analysis, and audit records.</text>
+<path d="M345.0,195.0 L415.0,195.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M345.0,195.0 L755.0,195.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M685.0,195.0 L755.0,195.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M685.0,195.0 L1095.0,195.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M415.0,195.0 L345.0,385.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M685.0,195.0 L755.0,385.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M685.0,195.0 L755.0,575.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M685.0,195.0 L415.0,765.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M685.0,195.0 L755.0,765.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M685.0,195.0 L1095.0,765.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M415.0,195.0 L345.0,955.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M685.0,195.0 L415.0,955.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M685.0,195.0 L755.0,955.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M685.0,195.0 L415.0,385.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M1025.0,385.0 L1095.0,385.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M755.0,385.0 L345.0,575.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M755.0,385.0 L685.0,575.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M1025.0,575.0 L1095.0,575.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M755.0,575.0 L685.0,765.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M1025.0,575.0 L755.0,765.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M755.0,575.0 L345.0,765.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M345.0,195.0 L1095.0,955.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<path d="M345.0,195.0 L75.0,1145.0" stroke="#9aacc1" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<rect x="75.0" y="152.0" width="270" height="86" rx="13" fill="#fff" stroke="#2459a6" stroke-width="1.6" filter="url(#shadow)"/>
+<text x="210.0" y="187.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#2459a6">users</text>
+<text x="210.0" y="208.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5f6f85">uuid id, string email, string</text>
+<text x="210.0" y="223.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5f6f85">hashed_password</text>
+<rect x="415.0" y="152.0" width="270" height="86" rx="13" fill="#fff" stroke="#2459a6" stroke-width="1.6" filter="url(#shadow)"/>
+<text x="550.0" y="187.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#2459a6">cases</text>
+<text x="550.0" y="208.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5f6f85">uuid id, string case_number,</text>
+<text x="550.0" y="223.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5f6f85">string title</text>
+<rect x="755.0" y="152.0" width="270" height="86" rx="13" fill="#fff" stroke="#2459a6" stroke-width="1.6" filter="url(#shadow)"/>
+<text x="890.0" y="187.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#2459a6">case_members</text>
+<rect x="1095.0" y="152.0" width="270" height="86" rx="13" fill="#fff" stroke="#2459a6" stroke-width="1.6" filter="url(#shadow)"/>
+<text x="1230.0" y="187.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#2459a6">suspects</text>
+<rect x="75.0" y="342.0" width="270" height="86" rx="13" fill="#fff" stroke="#2459a6" stroke-width="1.6" filter="url(#shadow)"/>
+<text x="210.0" y="377.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#2459a6">victims</text>
+<rect x="415.0" y="342.0" width="270" height="86" rx="13" fill="#fff" stroke="#2459a6" stroke-width="1.6" filter="url(#shadow)"/>
+<text x="550.0" y="377.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#2459a6">investigator_notes</text>
+<rect x="755.0" y="342.0" width="270" height="86" rx="13" fill="#fff" stroke="#2459a6" stroke-width="1.6" filter="url(#shadow)"/>
+<text x="890.0" y="377.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#2459a6">evidence</text>
+<text x="890.0" y="398.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5f6f85">uuid id, uuid case_id, string</text>
+<text x="890.0" y="413.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5f6f85">sha256_hash</text>
+<rect x="1095.0" y="342.0" width="270" height="86" rx="13" fill="#fff" stroke="#2459a6" stroke-width="1.6" filter="url(#shadow)"/>
+<text x="1230.0" y="377.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#2459a6">evidence_hashes</text>
+<rect x="75.0" y="532.0" width="270" height="86" rx="13" fill="#fff" stroke="#2459a6" stroke-width="1.6" filter="url(#shadow)"/>
+<text x="210.0" y="567.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#2459a6">chain_of_custody</text>
+<text x="210.0" y="588.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5f6f85">uuid id, uuid evidence_id, uuid</text>
+<text x="210.0" y="603.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5f6f85">investigator_id</text>
+<rect x="415.0" y="532.0" width="270" height="86" rx="13" fill="#fff" stroke="#2459a6" stroke-width="1.6" filter="url(#shadow)"/>
+<text x="550.0" y="567.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#2459a6">evidence_chunks</text>
+<text x="550.0" y="588.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5f6f85">uuid id, uuid evidence_id, int</text>
+<text x="550.0" y="603.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5f6f85">chunk_index</text>
+<rect x="755.0" y="532.0" width="270" height="86" rx="13" fill="#fff" stroke="#2459a6" stroke-width="1.6" filter="url(#shadow)"/>
+<text x="890.0" y="567.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#2459a6">entities</text>
+<text x="890.0" y="588.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5f6f85">uuid id, uuid case_id, enum</text>
+<text x="890.0" y="603.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5f6f85">entity_type</text>
+<rect x="1095.0" y="532.0" width="270" height="86" rx="13" fill="#fff" stroke="#2459a6" stroke-width="1.6" filter="url(#shadow)"/>
+<text x="1230.0" y="567.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#2459a6">entity_aliases</text>
+<rect x="75.0" y="722.0" width="270" height="86" rx="13" fill="#fff" stroke="#2459a6" stroke-width="1.6" filter="url(#shadow)"/>
+<text x="210.0" y="757.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#2459a6">entity_resolution_candidates</text>
+<rect x="415.0" y="722.0" width="270" height="86" rx="13" fill="#fff" stroke="#2459a6" stroke-width="1.6" filter="url(#shadow)"/>
+<text x="550.0" y="757.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#2459a6">relationships</text>
+<text x="550.0" y="778.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5f6f85">uuid id, uuid source_entity_id,</text>
+<text x="550.0" y="793.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5f6f85">uuid target_entity_id</text>
+<rect x="755.0" y="722.0" width="270" height="86" rx="13" fill="#fff" stroke="#2459a6" stroke-width="1.6" filter="url(#shadow)"/>
+<text x="890.0" y="757.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#2459a6">timeline_events</text>
+<rect x="1095.0" y="722.0" width="270" height="86" rx="13" fill="#fff" stroke="#2459a6" stroke-width="1.6" filter="url(#shadow)"/>
+<text x="1230.0" y="757.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#2459a6">anomalies</text>
+<text x="1230.0" y="778.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5f6f85">uuid id, uuid case_id, string</text>
+<text x="1230.0" y="793.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="10" fill="#5f6f85">anomaly_type</text>
+<rect x="75.0" y="912.0" width="270" height="86" rx="13" fill="#fff" stroke="#2459a6" stroke-width="1.6" filter="url(#shadow)"/>
+<text x="210.0" y="947.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#2459a6">threat_indicators</text>
+<rect x="415.0" y="912.0" width="270" height="86" rx="13" fill="#fff" stroke="#2459a6" stroke-width="1.6" filter="url(#shadow)"/>
+<text x="550.0" y="947.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#2459a6">reports</text>
+<rect x="755.0" y="912.0" width="270" height="86" rx="13" fill="#fff" stroke="#2459a6" stroke-width="1.6" filter="url(#shadow)"/>
+<text x="890.0" y="947.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#2459a6">ai_analysis</text>
+<rect x="1095.0" y="912.0" width="270" height="86" rx="13" fill="#fff" stroke="#2459a6" stroke-width="1.6" filter="url(#shadow)"/>
+<text x="1230.0" y="947.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#2459a6">audit_logs</text>
+<rect x="75.0" y="1102.0" width="270" height="86" rx="13" fill="#fff" stroke="#2459a6" stroke-width="1.6" filter="url(#shadow)"/>
+<text x="210.0" y="1137.0" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#2459a6">sessions</text>
+<text x="34" y="1272" font-family="Inter,Arial,sans-serif" font-size="12" fill="#5f6f85">21 tables · 23 relationships · Full editable source linked above</text>
+</svg>

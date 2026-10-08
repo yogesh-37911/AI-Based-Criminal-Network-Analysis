@@ -1,0 +1,18 @@
+graph LR
+    INV((Investigator))
+    ANALYST((Forensic Analyst))
+    ADMIN((Case Admin))
+    AUDITOR((Auditor))
+
+    INV --> UC1[Create/manage case]
+    INV --> UC2[Upload evidence]
+    INV --> UC3[Query AI assistant]
+    INV --> UC4[Review investigation graph]
+    INV --> UC5[Generate report]
+    ANALYST --> UC2
+    ANALYST --> UC6[Run entity/anomaly analysis]
+    ANALYST --> UC7[Static malware analysis]
+    ADMIN --> UC1
+    ADMIN --> UC8[Manage users/roles]
+    AUDITOR --> UC9[View chain of custody]
+    AUDITOR --> UC10[View audit logs]

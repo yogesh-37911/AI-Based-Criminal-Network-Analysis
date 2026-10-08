@@ -1,0 +1,23 @@
+sequenceDiagram
+    participant U as Investigator (UI)
+    participant API as FastAPI /api/analysis
+    participant TX as text_extraction
+    participant NER as entity_extraction
+    participant DB as PostgreSQL
+    participant RAG as rag_service
+
+    U->>API: POST /analysis/document/{evidence_id}
+    API->>DB: fetch Evidence row
+    API->>TX: extract_text(file, type)
+    TX-->>API: raw text
+    API->>DB: save extracted_text
+    API->>NER: extract_entities(text)
+    NER-->>API: [ExtractedEntity, ...] with confidence scores
+    API->>DB: persist_entities() — dedup by normalized value
+    API->>DB: build_cooccurrence_edges()
+    API->>DB: build_timeline_from_date_entities()
+    API->>RAG: index_evidence() — chunk + embed
+    RAG->>DB: store EvidenceChunk rows (pgvector)
+    API->>DB: log ChainOfCustody(action=ANALYZED)
+    API->>DB: log AuditLog(EVIDENCE_ANALYZED)
+    API-->>U: entity/edge/timeline/chunk counts + entity list

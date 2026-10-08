@@ -1,0 +1,26 @@
+classDiagram
+    Case "1" --> "*" Evidence
+    Case "1" --> "*" Suspect
+    Case "1" --> "*" Victim
+    Case "1" --> "*" Entity
+    Evidence "1" --> "*" ChainOfCustody
+    Evidence "1" --> "*" EvidenceChunk
+    Entity "1" --> "*" EntityAlias
+    Entity "1" --> "*" EntityRelationship : source
+    Entity "1" --> "*" EntityRelationship : target
+    Case "1" --> "*" TimelineEvent
+    Case "1" --> "*" Anomaly
+    Case "1" --> "*" Report
+    User "1" --> "*" Case : created_by
+    User "1" --> "*" AuditLog
+
+    class Evidence {
+        +sha256_hash
+        +status
+        +provenance
+    }
+    class EntityRelationship {
+        +relationship_type
+        +confidence_label
+        +weight
+    }

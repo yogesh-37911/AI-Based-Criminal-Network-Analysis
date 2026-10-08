@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 1040 598" role="img" aria-label="4. Use case diagram">
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#7188a5"/></marker><filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#12233f" flood-opacity=".10"/></filter></defs>
+<rect width="100%" height="100%" rx="20" fill="#f6f9fd"/>
+<text x="32" y="42" font-family="Inter,Arial,sans-serif" font-weight="700" font-size="22" fill="#12233f">4. Use case diagram</text>
+<path d="M260.0,126 L110.0,242" stroke="#91a6c0" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<path d="M260.0,126 L360.0,242" stroke="#91a6c0" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<path d="M260.0,126 L610.0,242" stroke="#91a6c0" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<path d="M260.0,126 L860.0,242" stroke="#91a6c0" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<path d="M260.0,126 L110.0,358" stroke="#91a6c0" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<path d="M510.0,126 L360.0,242" stroke="#91a6c0" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<path d="M510.0,126 L360.0,358" stroke="#91a6c0" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<path d="M510.0,126 L610.0,358" stroke="#91a6c0" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<path d="M760.0,126 L110.0,242" stroke="#91a6c0" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<path d="M760.0,126 L860.0,358" stroke="#91a6c0" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<path d="M1010.0,126 L110.0,474" stroke="#91a6c0" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<path d="M1010.0,126 L360.0,474" stroke="#91a6c0" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="94.0" y="91" width="182" height="70" rx="14" fill="white" stroke="#2459a6" stroke-width="1.7" filter="url(#shadow)"/>
+<text x="185.0" y="126" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#18263b">Investigator</text>
+<rect x="344.0" y="91" width="182" height="70" rx="14" fill="white" stroke="#2459a6" stroke-width="1.7" filter="url(#shadow)"/>
+<text x="435.0" y="126" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#18263b">Forensic Analyst</text>
+<rect x="594.0" y="91" width="182" height="70" rx="14" fill="white" stroke="#2459a6" stroke-width="1.7" filter="url(#shadow)"/>
+<text x="685.0" y="126" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#18263b">Case Admin</text>
+<rect x="844.0" y="91" width="182" height="70" rx="14" fill="white" stroke="#2459a6" stroke-width="1.7" filter="url(#shadow)"/>
+<text x="935.0" y="126" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#18263b">Auditor</text>
+<rect x="94.0" y="207" width="182" height="70" rx="14" fill="white" stroke="#2459a6" stroke-width="1.7" filter="url(#shadow)"/>
+<text x="185.0" y="242" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#18263b">Create/manage case</text>
+<rect x="344.0" y="207" width="182" height="70" rx="14" fill="white" stroke="#2459a6" stroke-width="1.7" filter="url(#shadow)"/>
+<text x="435.0" y="242" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#18263b">Upload evidence</text>
+<rect x="594.0" y="207" width="182" height="70" rx="14" fill="white" stroke="#2459a6" stroke-width="1.7" filter="url(#shadow)"/>
+<text x="685.0" y="242" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#18263b">Query AI assistant</text>
+<rect x="844.0" y="207" width="182" height="70" rx="14" fill="white" stroke="#2459a6" stroke-width="1.7" filter="url(#shadow)"/>
+<text x="935.0" y="233" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#18263b">Review investigation</text><text x="935.0" y="250" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#18263b">graph</text>
+<rect x="94.0" y="323" width="182" height="70" rx="14" fill="white" stroke="#2459a6" stroke-width="1.7" filter="url(#shadow)"/>
+<text x="185.0" y="358" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#18263b">Generate report</text>
+<rect x="344.0" y="323" width="182" height="70" rx="14" fill="white" stroke="#2459a6" stroke-width="1.7" filter="url(#shadow)"/>
+<text x="435.0" y="349" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#18263b">Run entity/anomaly</text><text x="435.0" y="366" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#18263b">analysis</text>
+<rect x="594.0" y="323" width="182" height="70" rx="14" fill="white" stroke="#2459a6" stroke-width="1.7" filter="url(#shadow)"/>
+<text x="685.0" y="358" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#18263b">Static malware analysis</text>
+<rect x="844.0" y="323" width="182" height="70" rx="14" fill="white" stroke="#2459a6" stroke-width="1.7" filter="url(#shadow)"/>
+<text x="935.0" y="358" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#18263b">Manage users/roles</text>
+<rect x="94.0" y="439" width="182" height="70" rx="14" fill="white" stroke="#2459a6" stroke-width="1.7" filter="url(#shadow)"/>
+<text x="185.0" y="474" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#18263b">View chain of custody</text>
+<rect x="344.0" y="439" width="182" height="70" rx="14" fill="white" stroke="#2459a6" stroke-width="1.7" filter="url(#shadow)"/>
+<text x="435.0" y="474" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#18263b">View audit logs</text>
+</svg>
