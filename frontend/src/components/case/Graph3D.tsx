@@ -975,6 +975,13 @@ export default function Graph3D({ caseId }: { caseId: string }) {
     type: string;
     pagerank: number;
     degree: number;
+    connections: Array<{
+      id: string;
+      label: string;
+      type: string;
+      relationshipType: string;
+      weight: number;
+    }>;
   } | null>(null);
   const [hoveredNode, setHoveredNode] = useState<{
     id: string;
@@ -1063,7 +1070,9 @@ export default function Graph3D({ caseId }: { caseId: string }) {
         prMap,
         degMap,
         layoutMode,
-        (sel) => setSelectedNode(sel),
+        (sel) => setSelectedNode(
+          sel ? { ...sel, connections: getConnectionsForNode(sel.id) } : null
+        ),
         (hov, pos) => {
           setHoveredNode(hov);
           if (pos) setHoverPos(pos);
@@ -1128,6 +1137,27 @@ export default function Graph3D({ caseId }: { caseId: string }) {
 
   const nodes = graphData?.nodes || [];
   const metrics = graphData?.metrics;
+
+  const getConnectionsForNode = (nodeId: string) => {
+    if (!graphData) return [];
+    return graphData.edges.flatMap((edge: any) => {
+      const neighborId = edge.source === nodeId
+        ? edge.target
+        : edge.target === nodeId
+          ? edge.source
+          : null;
+      if (!neighborId) return [];
+      const neighbor = graphData.nodes.find((candidate: any) => candidate.id === neighborId);
+      if (!neighbor) return [];
+      return [{
+        id: neighbor.id,
+        label: neighbor.label || String(neighbor.id).slice(0, 12),
+        type: neighbor.type || "OTHER",
+        relationshipType: String(edge.type || "CONNECTED").replace(/_/g, " "),
+        weight: Number(edge.weight || 1),
+      }];
+    });
+  };
 
   const filteredSearchNodes = searchQuery
     ? nodes.filter((n) => n.label.toLowerCase().includes(searchQuery.toLowerCase()))
@@ -1347,8 +1377,38 @@ export default function Graph3D({ caseId }: { caseId: string }) {
                 </div>
               </div>
 
-              <div className="mt-3 text-[10px] font-mono text-muted leading-relaxed">
-                Connections & 1-hop neighborhood are illuminated in neon cyan.
+              <div className="mt-3 border-t border-[#1E293B] pt-2">
+                <div className="mb-1.5 flex items-center justify-between text-[10px] font-mono text-muted">
+                  <span>LINKED CONNECTIONS</span>
+                  <span className="text-cyan">{selectedNode.connections.length}</span>
+                </div>
+                {selectedNode.connections.length > 0 ? (
+                  <div className="max-h-32 space-y-1 overflow-y-auto pr-1">
+                    {selectedNode.connections.map((connection) => (
+                      <div
+                        key={`${connection.id}-${connection.relationshipType}`}
+                        className="flex items-start justify-between gap-2 rounded-md bg-white/[0.03] px-2 py-1.5"
+                      >
+                        <div className="min-w-0">
+                          <div className="break-all text-[10px] font-mono text-text">
+                            {connection.label}
+                          </div>
+                          <div className="mt-0.5 text-[9px] font-mono uppercase tracking-wide text-muted">
+                            {getMeta(connection.type).label}
+                          </div>
+                        </div>
+                        <span className="shrink-0 text-right text-[9px] font-mono text-cyan">
+                          {connection.relationshipType}
+                          {connection.weight > 1 ? ` · ×${connection.weight}` : ""}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-[10px] font-mono text-muted leading-relaxed">
+                    No linked entities in this case graph.
+                  </div>
+                )}
               </div>
             </div>
           )}
@@ -1435,6 +1495,7 @@ export default function Graph3D({ caseId }: { caseId: string }) {
                         type: n.type,
                         pagerank: 0,
                         degree: 0,
+                        connections: getConnectionsForNode(n.id),
                       });
                     }}
                     className="w-full text-left p-2 rounded text-xs font-mono hover:bg-panel2 transition-colors flex items-center justify-between group"
