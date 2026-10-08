@@ -157,3 +157,5 @@ forge-ai/
   vs. what needs work before any real deployment
 - [`docs/forensic_workflow.md`](docs/forensic_workflow.md) — the
   evidence → graph → timeline → RAG → report investigation workflow
+- [`docs/render_deployment.md`](docs/render_deployment.md) — Render Blueprint
+  setup and step-by-step deployment guide

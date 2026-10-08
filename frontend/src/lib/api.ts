@@ -20,14 +20,10 @@ export function clearTokens() {
   localStorage.removeItem("forge_refresh_token");
 }
 
-const API_BASE =
-  process.env.NEXT_PUBLIC_API_URL ||
-  (typeof window !== "undefined" &&
-  (window.location.port === "3000" ||
-    window.location.hostname === "localhost" ||
-    window.location.hostname === "127.0.0.1")
-    ? "http://localhost:8000"
-    : "");
+// Keep browser calls on the frontend origin. Next.js rewrites /api/* to the
+// backend URL, which avoids cross-origin browser requests in both local and
+// Render deployments.
+const API_BASE = "";
 
 async function request(path: string, options: RequestInit = {}) {
   const token = getToken();

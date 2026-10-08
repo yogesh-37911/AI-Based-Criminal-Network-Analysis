@@ -28,6 +28,13 @@ def _make_sqlite_engine(url: str):
 def init_engine():
     url = settings.DATABASE_URL
     if url and url.startswith("postgresql"):
+        # Never silently use ephemeral SQLite in production. A temporary
+        # Postgres outage should fail startup and be retried by the platform.
+        if settings.ENV.lower() == "production":
+            return create_engine(
+                url, pool_pre_ping=True, future=True,
+                connect_args={"connect_timeout": 5},
+            )
         try:
             eng = create_engine(url, pool_pre_ping=True, future=True, connect_args={"connect_timeout": 1})
             with eng.connect() as conn:
