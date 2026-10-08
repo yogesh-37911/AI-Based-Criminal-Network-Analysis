@@ -326,7 +326,7 @@ export default function AssistantTab({ caseId }: { caseId: string }) {
                 🛡️
               </div>
               <p className="text-sm font-head font-bold text-text">
-                Digital Forensics AI Copilot
+                SHERLOCK-X
               </p>
               <p className="text-xs font-mono text-muted mt-1 max-w-sm">
                 Ask anything about this case — evidence synthesis, suspect networks, timeline analysis, or IOC correlation.
