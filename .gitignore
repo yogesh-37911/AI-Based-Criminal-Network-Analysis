@@ -1,34 +1,25 @@
-# Local secrets and environment files
+# Environment / Secrets
 .env
-.env.*
-!.env.example
-!.env.local.example
+.env.local
+*.env
 
 # Python
 venv/
 .venv/
 __pycache__/
-*.py[cod]
+*.pyc
 .pytest_cache/
+.coverage
+htmlcov/
 
 # Node / Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/out/
 node_modules/
-.next/
-.turbo/
 
-# Local evidence, uploads, and generated output
-backend/uploads/
-uploads/
-pptx-output/
-.codex-build-hackathon/
-
-# OS / editor
+# IDE / OS
+.idea/
+.vscode/
 .DS_Store
 Thumbs.db
-.vscode/
-.idea/
-
-*.db
-*.sqlite
-*.sqlite3
-*.tsbuildinfo

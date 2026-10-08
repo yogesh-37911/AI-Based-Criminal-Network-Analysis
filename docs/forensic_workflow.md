@@ -3,9 +3,33 @@
 This is the intended end-to-end path an investigator takes through the
 platform, and which module/endpoint handles each step.
 
-![FORGE-AI — Forensic Investigation Workflow](diagrams/forensic_workflow-1.svg)
-
-[Editable Mermaid source](diagrams/forensic_workflow-1.mmd)
+```mermaid
+flowchart TD
+    S1[1. Create case] -->|POST /api/cases| S2[2. Add suspects/victims/notes]
+    S2 --> S3[3. Upload evidence]
+    S3 -->|POST /api/evidence/upload| S4[SHA-256 computed<br/>Chain of custody: UPLOADED]
+    S4 --> S5[4. Run AI analysis on evidence]
+    S5 -->|POST /api/analysis/document/id| S6[Entities extracted + persisted]
+    S6 --> S7[Co-occurrence relationships built]
+    S7 --> S8[5. Review Investigation Graph]
+    S8 -->|GET /api/graph/case/id| S9[6. Run entity resolution]
+    S9 -->|POST /api/analysis/entities/id/resolve| S10[Investigator confirms/rejects<br/>potential matches]
+    S6 --> S11[7. Review Timeline]
+    S11 -->|GET /api/timeline/case/id| S12[8. Run anomaly detection]
+    S12 -->|POST /api/analysis/anomaly/id| S13[Anomalies flagged for review]
+    S3 --> S14[9. Static file analysis<br/>if executable/suspicious file]
+    S14 -->|POST /api/analysis/malware/id| S15[Entropy/strings/PE-ELF report]
+    S6 --> S16[10. Threat intel check<br/>on extracted IPs/domains/hashes]
+    S16 -->|POST /api/threat-intel/check| S17["VirusTotal/AbuseIPDB verdict<br/>or unavailable"]
+    S6 --> S18[11. Ask the AI Investigation Assistant]
+    S18 -->|POST /api/ai/query| S19[Cited, confidence-labeled answer]
+    S8 --> S20[12. Generate forensic report]
+    S11 --> S20
+    S13 --> S20
+    S19 --> S20
+    S20 -->|POST /api/reports| S21[15-section structured report]
+    S21 --> S22[13. Investigator reviews + signs off]
+```
 
 ## Investigator-facing walkthrough
 
