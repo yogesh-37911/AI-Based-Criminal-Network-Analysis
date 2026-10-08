@@ -1,19 +1,16 @@
-# Render Blueprint for the FORGE-AI monorepo.
+# Free-tier Render Blueprint for the FORGE-AI monorepo.
+# Free web services have ephemeral filesystems. Uploaded evidence is not durable.
 # Secret values are entered in Render's dashboard; never commit API keys here.
 services:
   - type: web
     name: forge-ai-api
     runtime: docker
-    plan: starter
+    plan: free
     region: singapore
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
     healthCheckPath: /health
     autoDeploy: true
-    disk:
-      name: forge-ai-evidence
-      mountPath: /app/uploads
-      sizeGB: 2
     envVars:
       - key: ENV
         value: production
@@ -39,7 +36,7 @@ services:
   - type: web
     name: forge-ai-frontend
     runtime: docker
-    plan: starter
+    plan: free
     region: singapore
     dockerfilePath: ./frontend/Dockerfile
     dockerContext: ./frontend
