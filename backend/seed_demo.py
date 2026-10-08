@@ -25,8 +25,22 @@ db = SessionLocal()
 
 # ---------- Helpers ----------
 
+import os
+
 def _ago(days: int, hours: int = 0) -> datetime:
     return datetime.utcnow() - timedelta(days=days, hours=hours)
+
+
+def _ensure_physical_file(ev: Evidence):
+    os.makedirs(os.path.dirname(ev.stored_path), exist_ok=True)
+    content = ev.extracted_text or f"Demo evidence file for {ev.original_filename}\nSource: {ev.source}\nDescription: {ev.description}"
+    content_bytes = content.encode("utf-8")
+    with open(ev.stored_path, "wb") as f:
+        f.write(content_bytes)
+    real_hash = sha256(content_bytes).hexdigest()
+    ev.sha256_hash = real_hash
+    ev.file_size_bytes = len(content_bytes)
+    return real_hash
 
 
 def _seed_rich_case(spec):
@@ -280,6 +294,7 @@ def seed_case_1():
         status=EvidenceStatus.ANALYZED, extracted_text="YOUR FILES HAVE BEEN ENCRYPTED. Send 15 BTC to bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh..."
     )
     for ev in [ev1, ev2, ev3, ev4]:
+        _ensure_physical_file(ev)
         db.add(ev)
     db.flush()
 
@@ -437,6 +452,7 @@ def seed_case_2():
         status=EvidenceStatus.FLAGGED
     )
     for ev in [ev1, ev2, ev3]:
+        _ensure_physical_file(ev)
         db.add(ev)
     db.flush()
 
@@ -563,6 +579,7 @@ def seed_case_3():
         status=EvidenceStatus.FLAGGED
     )
     for ev in [ev1, ev2]:
+        _ensure_physical_file(ev)
         db.add(ev)
     db.flush()
 
@@ -655,6 +672,7 @@ def seed_case_4():
         status=EvidenceStatus.ANALYZED, extracted_text="[DM] @carlos_reyes94: meet me at the warehouse at 11pm. don't tell anyone..."
     )
     for ev in [ev1, ev2]:
+        _ensure_physical_file(ev)
         db.add(ev)
     db.flush()
 
@@ -766,6 +784,7 @@ def seed_case_5():
         status=EvidenceStatus.ANALYZED
     )
     for ev in [ev1, ev2]:
+        _ensure_physical_file(ev)
         db.add(ev)
     db.flush()
 
