@@ -992,6 +992,8 @@ export default function Graph3D({ caseId }: { caseId: string }) {
 
   // Entity resolution
   const [resolving, setResolving] = useState(false);
+  const [resolutionError, setResolutionError] = useState<string | null>(null);
+  const [resolutionAttempted, setResolutionAttempted] = useState(false);
   const [candidates, setCandidates] = useState<any[]>([]);
 
   /* ── Load Graph Data ── */
@@ -1125,11 +1127,15 @@ export default function Graph3D({ caseId }: { caseId: string }) {
   /* ── Run Entity Resolution ── */
   async function runResolution() {
     setResolving(true);
+    setResolutionError(null);
+    setResolutionAttempted(true);
     try {
       const result = await api.post(`/analysis/entities/${caseId}/resolve`);
       setCandidates(result.candidates || []);
-    } catch {
-      // ignore
+    } catch (err) {
+      setResolutionError(
+        err instanceof Error ? err.message : "Could not analyze potential matches. Please try again."
+      );
     } finally {
       setResolving(false);
     }
@@ -1567,6 +1573,14 @@ export default function Graph3D({ caseId }: { caseId: string }) {
           </button>
 
           <div className="space-y-2 max-h-56 overflow-y-auto pr-1">
+            {resolutionError && (
+              <div
+                role="alert"
+                className="rounded border border-danger/30 bg-danger/10 px-2.5 py-2 text-[10px] font-mono text-danger leading-relaxed"
+              >
+                Match analysis failed: {resolutionError}
+              </div>
+            )}
             {candidates.map((c) => (
               <div
                 key={c.id}
@@ -1597,7 +1611,11 @@ export default function Graph3D({ caseId }: { caseId: string }) {
             ))}
             {!resolving && candidates.length === 0 && (
               <div className="text-xs font-mono text-muted text-center py-3">
-                No potential matches scored yet. Click above to analyze.
+                {resolutionError
+                  ? "Fix the issue above, then run the match analysis again."
+                  : resolutionAttempted
+                    ? "No likely matches found yet. Analyze more evidence or add more entities to this case."
+                    : "No potential matches scored yet. Click above to analyze."}
               </div>
             )}
           </div>

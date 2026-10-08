@@ -43,6 +43,12 @@ def _get_email_domain(email_str: str) -> str:
     return ""
 
 
+def _get_email_local_part(email_str: str) -> str:
+    if "@" in email_str:
+        return email_str.split("@", 1)[0].strip()
+    return ""
+
+
 def _get_url_host(url_str: str) -> str:
     try:
         parsed = urlparse(url_str.strip())
@@ -90,6 +96,38 @@ def find_candidates_for_case(db: Session, case_id: str) -> List[EntityResolution
 
     # 1. Names / Organizations / Social Media
     name_entities = [e for e in entities if e.entity_type in NAME_TYPES]
+    people = [e for e in entities if e.entity_type == EntityType.PERSON]
+    emails = [e for e in entities if e.entity_type == EntityType.EMAIL]
+    generic_email_names = {
+        "abuse", "admin", "alerts", "billing", "contact", "help", "hostmaster",
+        "info", "mailerdaemon", "noreply", "postmaster", "privacy", "root",
+        "sales", "security", "support", "webmaster",
+    }
+
+    # Email usernames often encode a person's name (for example,
+    # "alice.clerk@example.org" alongside the extracted person "Alice Clerk").
+    # Treat similarity as a review lead, never as an automatic identity merge.
+    for person in people:
+        normalized_person = _normalize(person.value)
+        if len(normalized_person) < 4:
+            continue
+        for email in emails:
+            local_part = _get_email_local_part(email.value)
+            normalized_local = _normalize(local_part)
+            if len(normalized_local) < 4 or normalized_local in generic_email_names:
+                continue
+            similarity = _name_similarity(person.value, local_part)
+            if similarity >= 0.62:
+                add_candidate(
+                    person,
+                    email,
+                    similarity,
+                    [
+                        f"Email username '{local_part}' resembles the person name '{person.value}' ({round(similarity * 100)}% string similarity).",
+                        f"Same source evidence: {person.first_seen_evidence_id == email.first_seen_evidence_id}",
+                    ],
+                )
+
     for i in range(len(name_entities)):
         for j in range(i + 1, len(name_entities)):
             a, b = name_entities[i], name_entities[j]
@@ -106,7 +144,6 @@ def find_candidates_for_case(db: Session, case_id: str) -> List[EntityResolution
                 )
 
     # 2. Email domain infrastructure matching (e.g. phishing accounts on same domain)
-    emails = [e for e in entities if e.entity_type == EntityType.EMAIL]
     domains = [e for e in entities if e.entity_type == EntityType.DOMAIN]
 
     for i in range(len(emails)):
