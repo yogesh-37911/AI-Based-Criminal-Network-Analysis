@@ -177,8 +177,211 @@ function createNodeStalk(radius: number, height: number, colorHex: number) {
   return group;
 }
 
+/* ─── Type-specific forensic icon for each node label ────────────────────── */
+function drawEntityTypeIcon(
+  ctx: CanvasRenderingContext2D,
+  type: string,
+  centerX: number,
+  centerY: number
+) {
+  ctx.save();
+  ctx.translate(centerX, centerY);
+  ctx.strokeStyle = "#F8FAFC";
+  ctx.fillStyle = "#F8FAFC";
+  ctx.lineWidth = 2.25;
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+
+  switch (type) {
+    case "EMAIL":
+      ctx.beginPath();
+      ctx.roundRect(-12, -8, 24, 16, 3);
+      ctx.moveTo(-11, -6);
+      ctx.lineTo(0, 2);
+      ctx.lineTo(11, -6);
+      ctx.stroke();
+      break;
+    case "PHONE_NUMBER":
+      ctx.beginPath();
+      ctx.roundRect(-7.5, -13, 15, 26, 3);
+      ctx.moveTo(-3, -8);
+      ctx.lineTo(3, -8);
+      ctx.moveTo(-2, 8.5);
+      ctx.lineTo(2, 8.5);
+      ctx.stroke();
+      break;
+    case "IP_ADDRESS":
+    case "DOMAIN":
+    case "URL":
+      ctx.beginPath();
+      ctx.arc(0, 0, 11, 0, Math.PI * 2);
+      ctx.moveTo(-11, 0);
+      ctx.lineTo(11, 0);
+      ctx.moveTo(0, -11);
+      ctx.bezierCurveTo(-6, -6, -6, 6, 0, 11);
+      ctx.bezierCurveTo(6, 6, 6, -6, 0, -11);
+      ctx.moveTo(-8, -7);
+      ctx.quadraticCurveTo(0, -3, 8, -7);
+      ctx.moveTo(-8, 7);
+      ctx.quadraticCurveTo(0, 3, 8, 7);
+      ctx.stroke();
+      break;
+    case "PERSON":
+    case "SOCIAL_MEDIA_ACCOUNT":
+      ctx.beginPath();
+      ctx.arc(0, -5, 5, 0, Math.PI * 2);
+      ctx.moveTo(-10, 11);
+      ctx.bezierCurveTo(-9, 3, 9, 3, 10, 11);
+      ctx.stroke();
+      break;
+    case "ORGANIZATION":
+      ctx.beginPath();
+      ctx.moveTo(-11, 10);
+      ctx.lineTo(11, 10);
+      ctx.moveTo(-8, 7);
+      ctx.lineTo(-8, -5);
+      ctx.lineTo(8, -5);
+      ctx.lineTo(8, 7);
+      ctx.moveTo(-11, -5);
+      ctx.lineTo(0, -12);
+      ctx.lineTo(11, -5);
+      ctx.moveTo(-3, -2);
+      ctx.lineTo(-3, 7);
+      ctx.moveTo(3, -2);
+      ctx.lineTo(3, 7);
+      ctx.stroke();
+      break;
+    case "DEVICE":
+      ctx.beginPath();
+      ctx.roundRect(-11, -9, 22, 16, 2);
+      ctx.moveTo(-6, 11);
+      ctx.lineTo(6, 11);
+      ctx.moveTo(0, 7);
+      ctx.lineTo(0, 11);
+      ctx.stroke();
+      break;
+    case "BANK_ACCOUNT":
+      ctx.beginPath();
+      ctx.moveTo(-12, -5);
+      ctx.lineTo(0, -12);
+      ctx.lineTo(12, -5);
+      ctx.moveTo(-10, -3);
+      ctx.lineTo(10, -3);
+      ctx.moveTo(-9, 9);
+      ctx.lineTo(9, 9);
+      ctx.moveTo(-12, 12);
+      ctx.lineTo(12, 12);
+      for (const x of [-7, 0, 7]) {
+        ctx.moveTo(x, -2);
+        ctx.lineTo(x, 8);
+      }
+      ctx.stroke();
+      break;
+    case "TRANSACTION_ID":
+    case "FILE":
+      ctx.beginPath();
+      ctx.moveTo(-7, -12);
+      ctx.lineTo(3, -12);
+      ctx.lineTo(9, -6);
+      ctx.lineTo(9, 12);
+      ctx.lineTo(-9, 12);
+      ctx.lineTo(-9, -10);
+      ctx.closePath();
+      ctx.moveTo(3, -11);
+      ctx.lineTo(3, -5);
+      ctx.lineTo(8, -5);
+      ctx.moveTo(-5, 0);
+      ctx.lineTo(5, 0);
+      ctx.moveTo(-5, 5);
+      ctx.lineTo(5, 5);
+      ctx.stroke();
+      break;
+    case "CRYPTO_WALLET":
+      ctx.beginPath();
+      ctx.arc(-5, 0, 6, -Math.PI / 2, Math.PI / 2);
+      ctx.arc(5, 0, 6, Math.PI / 2, -Math.PI / 2);
+      ctx.moveTo(-2, -5);
+      ctx.lineTo(2, -5);
+      ctx.moveTo(-2, 5);
+      ctx.lineTo(2, 5);
+      ctx.stroke();
+      break;
+    case "LOCATION":
+      ctx.beginPath();
+      ctx.moveTo(0, 12);
+      ctx.bezierCurveTo(-2, 8, -10, 1, -10, -4);
+      ctx.arc(0, -4, 10, Math.PI, 0, true);
+      ctx.bezierCurveTo(10, 1, 2, 8, 0, 12);
+      ctx.moveTo(0, -8);
+      ctx.arc(0, -4, 3.5, -Math.PI / 2, Math.PI * 1.5);
+      ctx.stroke();
+      break;
+    case "DATE":
+    case "TIME":
+      ctx.beginPath();
+      ctx.arc(0, 0, 11, 0, Math.PI * 2);
+      ctx.moveTo(0, -6);
+      ctx.lineTo(0, 0);
+      ctx.lineTo(5, 3);
+      ctx.stroke();
+      break;
+    default:
+      ctx.beginPath();
+      ctx.arc(-7, 0, 3, 0, Math.PI * 2);
+      ctx.arc(7, -7, 3, 0, Math.PI * 2);
+      ctx.arc(7, 7, 3, 0, Math.PI * 2);
+      ctx.moveTo(-4, -1);
+      ctx.lineTo(4, -6);
+      ctx.moveTo(-4, 1);
+      ctx.lineTo(4, 6);
+      ctx.stroke();
+      break;
+  }
+  ctx.restore();
+}
+
+function createNodeTypeIconSprite(type: string, color: string, size: number) {
+  const canvas = document.createElement("canvas");
+  canvas.width = 128;
+  canvas.height = 128;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return null;
+
+  ctx.save();
+  ctx.shadowColor = hexToRgba(color, 0.8);
+  ctx.shadowBlur = 18;
+  ctx.beginPath();
+  ctx.arc(64, 64, 48, 0, Math.PI * 2);
+  ctx.fillStyle = "rgba(5, 10, 18, 0.94)";
+  ctx.fill();
+  ctx.shadowBlur = 0;
+  ctx.lineWidth = 3;
+  ctx.strokeStyle = color;
+  ctx.stroke();
+  ctx.restore();
+
+  ctx.save();
+  ctx.translate(64, 64);
+  ctx.scale(2.15, 2.15);
+  drawEntityTypeIcon(ctx, type, 0, 0);
+  ctx.restore();
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.minFilter = THREE.LinearFilter;
+  texture.magFilter = THREE.LinearFilter;
+  texture.generateMipmaps = false;
+  const sprite = new THREE.Sprite(new THREE.SpriteMaterial({
+    map: texture,
+    transparent: true,
+    depthTest: false,
+    depthWrite: false,
+  }));
+  sprite.scale.set(size, size, 1);
+  return sprite;
+}
+
 /* ─── 3D Holographic Text Sprite Creator ─────────────────────────────────── */
-function createTextSprite(text: string, color: string, typeName: string = "") {
+function createTextSprite(text: string, color: string, typeName: string = "", entityType: string = "") {
   const canvas = document.createElement("canvas");
   canvas.width = 512;
   canvas.height = 140;
@@ -300,11 +503,8 @@ function createTextSprite(text: string, color: string, typeName: string = "") {
   ctx.arc(orbX, orbY, 12, 0, Math.PI * 2);
   ctx.fill();
 
-  // Jewel Specular Glint
-  ctx.fillStyle = "rgba(255, 255, 255, 0.95)";
-  ctx.beginPath();
-  ctx.arc(orbX - 3.5, orbY - 3.5, 3.2, 0, Math.PI * 2);
-  ctx.fill();
+  // Replace the generic orb glint with a distinct, high-contrast entity icon.
+  drawEntityTypeIcon(ctx, entityType, orbX, orbY);
 
   // 7. Micro Divider
   const divX = x + 72;
@@ -558,6 +758,13 @@ function buildGraphScene(
     const mesh = new THREE.Mesh(sphereGeo, sphereMat);
     mesh.userData = { id: n.id, label: n.label, type: n.type, pagerank: pr, degree: deg };
 
+    // A camera-facing type badge makes entities distinguishable at a glance.
+    const typeIcon = createNodeTypeIconSprite(n.type, meta.color, radius * 1.25);
+    if (typeIcon) {
+      typeIcon.position.set(0, 0, radius + 0.08);
+      mesh.add(typeIcon);
+    }
+
     // Outer pulsating halo ring
     const haloGeo = new THREE.TorusGeometry(radius * 1.5, 0.22, 8, 36);
     const haloMat = new THREE.MeshBasicMaterial({
@@ -575,7 +782,7 @@ function buildGraphScene(
     mesh.add(stalk);
 
     // Text label sprite floating right above the stalk
-    const sprite = createTextSprite(n.label, meta.color, meta.label);
+    const sprite = createTextSprite(n.label, meta.color, meta.label, n.type);
     if (sprite) {
       // 1.45 offset places the downward notch directly touching the stalk tip
       sprite.position.set(0, radius + stalkHeight + 1.45, 0);
