@@ -1,0 +1,53 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: forge-postgres
+    environment:
+      POSTGRES_USER: forge
+      POSTGRES_PASSWORD: forge
+      POSTGRES_DB: forge_ai
+    ports:
+      - "5432:5432"
+    volumes:
+      - forge_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U forge"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: forge-redis
+    ports:
+      - "6379:6379"
+
+  backend:
+    build: ./backend
+    container_name: forge-backend
+    env_file: ./backend/.env
+    environment:
+      DATABASE_URL: postgresql+psycopg2://forge:forge@postgres:5432/forge_ai
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    volumes:
+      - forge_uploads:/app/uploads
+    command: >
+      sh -c "python seed.py && uvicorn app.main:app --host 0.0.0.0 --port 8000"
+
+  frontend:
+    build: ./frontend
+    container_name: forge-frontend
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+
+volumes:
+  forge_pg_data:
+  forge_uploads:

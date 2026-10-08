@@ -1,0 +1,13 @@
+# Zeek / Bro Network Connection & SSL Log
+# Fields: ts uid id.orig_h id.orig_p id.resp_h id.resp_p proto service duration orig_bytes resp_bytes conn_state history
+2026-08-14T18:35:12.112000Z C910248819 10.10.40.88 52144 185.220.101.5 443 tcp ssl 124.50 84210940 1204 SF ShADdfFa
+2026-08-14T18:37:30.450000Z C910248820 10.10.40.88 52148 185.220.101.5 443 tcp ssl 310.12 654210000 4820 SF ShADdfFa
+2026-08-14T18:43:00.801000Z C910248821 10.10.40.88 52150 185.220.101.5 443 tcp ssl 204.05 450120900 3100 SF ShADdfFa
+2026-08-14T18:48:15.220000Z C910248825 10.10.40.88 52199 104.21.44.198 443 tcp ssl 15.20 2840 8920 SF ShADdfFa
+2026-08-14T18:50:02.100000Z C910248830 10.10.40.88 52210 198.51.100.42 22 tcp ssh 45.10 12500400 8120 SF ShADdfFa
+2026-08-14T18:55:40.000000Z C910248838 10.10.40.88 52280 8.8.8.8 53 udp dns 0.02 64 128 SF Dd
+# DNS Queries from 10.10.40.88:
+# 2026-08-14T18:34:55Z QTYPE=A NAME=dropzone-storage-eu.onion.to RESP=185.220.101.5 TTL=300
+# 2026-08-14T18:49:50Z QTYPE=A NAME=ssh-staging.apex-competitor.org RESP=198.51.100.42 TTL=120
+# ALERT: Outbound exfiltration spike detected!
+# Host 10.10.40.88 uploaded 1.18 GB in 15 minutes to Tor exit gateway / unclassified IP 185.220.101.5.

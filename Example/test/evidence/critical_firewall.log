@@ -1,0 +1,14 @@
+# Palo Alto Networks PAN-OS Threat and Traffic Log
+# Format: FUTURE_USE,ReceiveTime,SerialNumber,Type,Subtype,FUTURE_USE,GeneratedTime,SourceIP,DestinationIP,NATSourceIP,NATDestinationIP,RuleName,SourceUser,DestinationUser,Application,VirtualSystem,SourceZone,DestinationZone,InboundInterface,OutboundInterface,LogAction,SessionID,RepeatCount,SourcePort,DestinationPort,NATSourcePort,NATDestinationPort,Flags,Protocol,Action
+1,2026/08/20 01:14:22,001801004412,THREAT,vulnerability,1,2026/08/20 01:14:22,194.26.29.112,172.16.10.5,194.26.29.112,172.16.10.5,Ext-Inbound-DMZ,,,"ms-rdp",vsys1,Untrust,DMZ,ethernet1/1,ethernet1/2,alert,91024,1,44120,3389,44120,3389,0x8000,tcp,alert
+1,2026/08/20 01:15:05,001801004412,THREAT,vulnerability,1,2026/08/20 01:15:05,194.26.29.112,172.16.10.5,194.26.29.112,172.16.10.5,Ext-Inbound-DMZ,,,"cve-2024-38077-madlicense",vsys1,Untrust,DMZ,ethernet1/1,ethernet1/2,alert,91029,1,44128,135,44128,135,0x8000,tcp,alert
+1,2026/08/20 01:22:11,001801004412,TRAFFIC,start,1,2026/08/20 01:22:11,172.16.10.5,172.16.20.10,172.16.10.5,172.16.20.10,Internal-Lateral-Movement,STJUDE\svc_backup,,"psexec",vsys1,DMZ,Trust,ethernet1/2,ethernet1/3,allow,91055,1,50102,445,50102,445,0x4000,tcp,allow
+1,2026/08/20 01:45:30,001801004412,TRAFFIC,end,1,2026/08/20 01:45:30,172.16.20.10,91.240.118.172,172.16.20.10,91.240.118.172,Outbound-Data-C2,STJUDE\Administrator,,"ssl",vsys1,Trust,Untrust,ethernet1/3,ethernet1/1,allow,91110,4,58210,8443,58210,8443,0x4000,tcp,allow
+1,2026/08/20 02:10:04,001801004412,THREAT,spyware,1,2026/08/20 02:10:04,172.16.20.10,91.240.118.172,172.16.20.10,91.240.118.172,Outbound-Data-C2,STJUDE\Administrator,,"cobalt-strike-beacon",vsys1,Trust,Untrust,ethernet1/3,ethernet1/1,alert,91204,12,59100,8443,59100,8443,0x8000,tcp,alert
+1,2026/08/20 02:28:15,001801004412,TRAFFIC,drop,1,2026/08/20 02:28:15,172.16.20.10,194.26.29.112,172.16.20.10,194.26.29.112,Block-Threat-Feeds,,,any,vsys1,Trust,Untrust,ethernet1/3,ethernet1/1,deny,91350,1,60124,443,60124,443,0x0000,tcp,deny
+# SUMMARY OF INDICATORS OF COMPROMISE (IOC):
+# Ingress Attack IP: 194.26.29.112 (Russian Federation - AS48282)
+# C2 Command & Control IP: 91.240.118.172 (Netherlands - AS208044)
+# Compromised Host DMZ: 172.16.10.5 (VPN Gateway / RDP exposed)
+# Target Domain Controller: 172.16.20.10 (DC01.STJUDE.HEALTH)
+# Exploited Service: RDP Port 3389 / Windows RPC madlicense vulnerability

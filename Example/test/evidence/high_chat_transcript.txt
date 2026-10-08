@@ -1,0 +1,32 @@
+================================================================================
+EXPORTED CHAT THREAD: Signal Desktop SQLite DB Extraction
+Device: WS-ENG-8812 (Seized from cubicle 4F-12)
+Account: Dev Vikram (+91-9884102931)
+Contact: "A. Sterling" (+44-7700900144) - Flagged as Competitor Recruiter
+Date Range: 2026-08-10 to 2026-08-14
+================================================================================
+
+[2026-08-10 14:15:22 UTC] A. Sterling:
+Hi Dev, following up on our discussion regarding the Lead Architect offer in Zurich. Compensation package approved: CHF 240,000 base + equity.
+
+[2026-08-10 14:18:40 UTC] Dev Vikram:
+Thanks Alex. I've reviewed the contract. What about the IP transfer clause? My current company has strict non-competes.
+
+[2026-08-10 14:21:05 UTC] A. Sterling:
+We are particularly interested in the core algorithms behind Project Titan, specifically the latency benchmark configs and client list for Q3. If you can bring those architecture specs over, we can include a CHF 50,000 signing bonus.
+
+[2026-08-12 11:32:00 UTC] Dev Vikram:
+Understood. The source repository is monitored by DLP. I will need to use a clean drive after hours and bypass endpoint monitoring.
+
+[2026-08-12 11:35:10 UTC] A. Sterling:
+Use our secure staging SFTP at ssh-staging.apex-competitor.org or drop it on the onion gateway. Don't email anything.
+
+[2026-08-14 18:25:30 UTC] Dev Vikram:
+Everything is copied. Titan v3.4 source code, contract sheets, and encryption keys. Uploading to dropzone now. I just cleared the local Windows event logs.
+
+[2026-08-14 18:42:15 UTC] A. Sterling:
+Received archive packet (1.18 GB). MD5 checksum verified. Welcome aboard Dev. Delete this Signal conversation immediately.
+
+[2026-08-14 18:45:00 UTC] Dev Vikram:
+Done. Booking my flight to Zurich for Monday.
+================================================================================

@@ -1,0 +1,34 @@
+Delivered-To: dr.elizabeth.stone@stjude.health
+Received: by mx01.stjude.health with ESMTPS id j919si102434
+        for <dr.elizabeth.stone@stjude.health>; Wed, 19 Aug 2026 14:12:08 -0400 (EDT)
+Return-Path: <notifications-update@microsoft-online-support365.com>
+Received-SPF: Pass (protection.outlook.com: domain of microsoft-online-support365.com designates 194.26.29.112 as permitted sender)
+Authentication-Results: spf=pass (sender IP is 194.26.29.112)
+From: "St. Jude IT Security Operations" <it-security@microsoft-online-support365.com>
+Reply-To: "IT Support Desk" <helpdesk@microsoft-online-support365.com>
+To: <dr.elizabeth.stone@stjude.health>
+Subject: URGENT: Mandatory Hospital PACS System Security Certificate Update Required
+Date: Wed, 19 Aug 2026 14:11:55 -0400
+Message-ID: <20260819141155.88210.qmail@microsoft-online-support365.com>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="----=_NextPart_000_001A_01DC4412"
+
+------=_NextPart_000_001A_01DC4412
+Content-Type: text/plain; charset="UTF-8"
+
+Dr. Stone,
+
+Our IT security team has identified a critical vulnerability in your workstation's access to the Picture Archiving and Communication System (PACS) and Electronic Health Records (EHR).
+
+To prevent interruption of critical surgical imaging schedules tomorrow, you must immediately renew your hospital security token by clicking the verified intranet portal link below:
+
+https://portal-stjude-health.cloud-verify365.net/login?token=dr_stone_99120
+
+Failure to update your token within 4 hours will result in automatic lockout from ICU patient telemetry.
+
+Sincerely,
+Hospital Information Security Team (Ext: 4401)
+St. Jude Metropolitan Healthcare System
+
+[Attachment scanned: PACS_Update_Certificate.exe.zip (SHA-256: 8f4e22a0139b4b73e5512ce48ef201ba027814b1928929e46a782193bca81491)]
+------=_NextPart_000_001A_01DC4412--

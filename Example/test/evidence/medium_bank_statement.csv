@@ -1,0 +1,19 @@
+date,description,amount,category,merchant,account,reference
+2026-07-01,Salary Credit,85000.00,INCOME,Employer - NovaTech Solutions,HDFC-XXXX4521,SAL/JUL/2026
+2026-07-03,Client Dinner — Project Alpha,4250.00,EXPENSE,The Grand Pavilion Restaurant,HDFC-XXXX4521,TXN-90201
+2026-07-03,Client Dinner — Project Alpha,4250.00,EXPENSE,The Grand Pavilion Restaurant,ICICI-XXXX7833,TXN-90202
+2026-07-08,Travel Reimbursement — Mumbai,12500.00,EXPENSE,MakeMyTrip Flights,HDFC-XXXX4521,TXN-90245
+2026-07-08,Flight Tickets — Mumbai Trip,12500.00,EXPENSE,MakeMyTrip,ICICI-XXXX7833,TXN-90246
+2026-07-12,Office Supplies,3200.00,EXPENSE,Amazon Business,HDFC-XXXX4521,TXN-90301
+2026-07-15,Team Lunch,2800.00,EXPENSE,Barbeque Nation,HDFC-XXXX4521,TXN-90344
+2026-07-15,Team Lunch — Duplicate Entry,2800.00,EXPENSE,Barbeque Nation,ICICI-XXXX7833,TXN-90345
+2026-07-18,Software License — Adobe Suite,15000.00,EXPENSE,Adobe Inc.,HDFC-XXXX4521,TXN-90390
+2026-07-22,Cab Fare — Client Visit,1850.00,EXPENSE,Uber India,HDFC-XXXX4521,TXN-90412
+2026-07-22,Cab Fare — Client Visit,1850.00,EXPENSE,Uber India,ICICI-XXXX7833,TXN-90413
+2026-07-25,Conference Registration,8500.00,EXPENSE,TechSummit 2026,HDFC-XXXX4521,TXN-90455
+2026-07-28,Hotel Stay — Conference,6200.00,EXPENSE,Marriott Hotels,HDFC-XXXX4521,TXN-90478
+2026-07-28,Hotel Accommodation — Conference,6200.00,EXPENSE,Marriott Hotels,ICICI-XXXX7833,TXN-90479
+2026-08-01,Salary Credit,85000.00,INCOME,Employer - NovaTech Solutions,HDFC-XXXX4521,SAL/AUG/2026
+2026-08-05,Parking Charges,450.00,EXPENSE,MG Road Parking,HDFC-XXXX4521,TXN-90520
+2026-08-10,Internet Bill Reimbursement,2400.00,EXPENSE,Airtel Broadband,HDFC-XXXX4521,TXN-90560
+2026-08-10,Internet Charges,2400.00,EXPENSE,Airtel,ICICI-XXXX7833,TXN-90561

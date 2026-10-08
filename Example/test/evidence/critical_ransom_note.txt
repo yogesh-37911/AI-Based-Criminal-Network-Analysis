@@ -1,0 +1,31 @@
+!!! ALL YOUR FILES HAVE BEEN ENCRYPTED BY BLACKFORGE RANSOMWARE GROUP !!!
+
+Attention: St. Jude Metropolitan Healthcare System (Hospital ID: HC-99120)
+
+Your hospital network domain controller (DC01.STJUDE.HEALTH), patient database servers (PACS-SQL-01, EHR-PRIMARY), and 850 workstations have been fully encrypted using military-grade ChaCha20 + RSA-4096 algorithms.
+
+We have also exfiltrated 450 GB of sensitive patient records, including:
+- HIPAA Protected Health Information (PHI)
+- Patient blood tests, MRI scans, oncology reports
+- Surgeon schedules and ICUs operational feeds
+- Financial billing and credit card records
+
+IF YOU ATTEMPT TO:
+1. Use third-party decryption software -> all keys will be permanently destroyed.
+2. Contact law enforcement / FBI / Interpol -> your files will be leaked on our darknet blog:
+   http://blackforge7x2e81h.onion/leaks/stjude-health
+3. Power off or restart your storage arrays -> partial file corruption is guaranteed.
+
+RANSOM DEMAND:
+To decrypt all patient records and prevent publication of HIPAA data:
+- Amount: 25.5 BTC (~$1,650,000 USD)
+- Bitcoin Wallet Address: bc1qa5wkgaew2dkv56kfvj49j0av5nqvrlt3e58xxg
+- Deadline: 72 hours from 2026-08-20 02:30:00 UTC (Countdown expires: 2026-08-23 02:30:00 UTC)
+
+HOW TO CONTACT US:
+Install Tor Browser: https://www.torproject.org
+Visit our private portal: http://blackforge7x2e81h.onion/portal?cid=SJ-99120-RECOVERY
+Enter your Case Recovery Key: BF-8841-A901-EE44-1290
+
+Every 24 hours of delay will increase ransom demand by 5 BTC. Do not gamble with human lives.
+BlackForge Threat Group - "We hold the keys"

@@ -1,0 +1,65 @@
+================================================================================
+EXPENSE REIMBURSEMENT REPORT - AUDIT SUBMISSION
+Company: NovaTech Solutions Pvt Ltd
+Department: Regional Sales & Partnerships
+Claimant: Rajesh Verma (Employee ID: NT-4482)
+Approver: S. Ramanathan (Sales VP) - Auto-approved threshold < 50,000 INR
+Audit Flag: INTERNAL AUDIT SAMPLING - 2026-Q3
+================================================================================
+
+SUBMITTED CLAIMS FOR JULY 2026:
+
+Claim #1: EXP-2026-07-004
+Date: 2026-07-03
+Amount: INR 4,250.00
+Category: Client Entertainment
+Merchant: The Grand Pavilion Restaurant, Bengaluru
+Attached Receipt: RCPT_90201.jpg (HDFC Bank debit slip)
+Claim Status: PAID (Account Credit: 2026-07-05)
+
+Claim #2: EXP-2026-07-009
+Date: 2026-07-08
+Amount: INR 12,500.00
+Category: Airfare / Domestic Travel
+Merchant: MakeMyTrip Flights - BLR to BOM
+Attached Receipt: E-Ticket-BOM-7712.pdf
+Claim Status: PAID (Account Credit: 2026-07-10)
+
+Claim #3: EXP-2026-07-015
+Date: 2026-07-15
+Amount: INR 2,800.00
+Category: Team Engagement
+Merchant: Barbeque Nation, Koramangala
+Attached Receipt: TAX-INV-BN-8821.pdf
+Claim Status: PAID (Account Credit: 2026-07-17)
+
+Claim #4: EXP-2026-07-022
+Date: 2026-07-22
+Amount: INR 1,850.00
+Category: Local Conveyance
+Merchant: Uber India - Airport Transfer
+Attached Receipt: UBR-INV-99014.pdf
+Claim Status: PAID (Account Credit: 2026-07-24)
+
+Claim #5: EXP-2026-07-028
+Date: 2026-07-28
+Amount: INR 6,200.00
+Category: Lodging / Conference
+Merchant: Marriott Hotels, Mumbai Central
+Attached Receipt: FOLIO-MAR-3012.pdf
+Claim Status: PAID (Account Credit: 2026-07-30)
+
+Claim #6: EXP-2026-07-031 (SUBMITTED UNDER ICICI ACCOUNT BYPASS)
+Date: 2026-07-03 [Resubmitted 2026-07-31]
+Amount: INR 4,250.00
+Category: Strategic Partner Dinner
+Merchant: The Grand Pavilion Restaurant (Duplicate Claim)
+Attached Receipt: RCPT_90202.jpg (ICICI card copy with altered timestamp)
+Claim Status: PENDING HR INVESTIGATION
+
+AUDITOR'S FINDINGS:
+1. Exact match on date and amount (INR 4,250.00) submitted twice under separate payment cards.
+2. Cross-referencing bank statements indicates claimant claimed identical expenses across both corporate accounts.
+3. Total duplicate/fraudulent funds claimed: INR 30,000.00 across 5 paired transactions.
+4. Suspect: Rajesh Verma (rajesh.verma@novatech.internal).
+================================================================================
