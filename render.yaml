@@ -1,12 +1,14 @@
 # Free-tier Render Blueprint for the FORGE-AI monorepo.
 # Free web services have ephemeral filesystems. Uploaded evidence is not durable.
-# Secret values are entered in Render's dashboard; never commit API keys here.
+# Reuses an existing Oregon Render Postgres instance. Set DATABASE_URL in Render
+# to that instance's internal URL with the dedicated `forge_ai` database name.
+# Secret values are entered in Render's dashboard; never commit them here.
 services:
   - type: web
     name: forge-ai-api
     runtime: docker
     plan: free
-    region: singapore
+    region: oregon
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
     healthCheckPath: /health
@@ -15,9 +17,7 @@ services:
       - key: ENV
         value: production
       - key: DATABASE_URL
-        fromDatabase:
-          name: forge-ai-db
-          property: connectionString
+        sync: false
       - key: SECRET_KEY
         generateValue: true
       - key: ADMIN_PASSWORD
@@ -37,7 +37,7 @@ services:
     name: forge-ai-frontend
     runtime: docker
     plan: free
-    region: singapore
+    region: oregon
     dockerfilePath: ./frontend/Dockerfile
     dockerContext: ./frontend
     healthCheckPath: /
@@ -48,12 +48,3 @@ services:
           name: forge-ai-api
           type: web
           envVarKey: RENDER_EXTERNAL_URL
-
-databases:
-  - name: forge-ai-db
-    databaseName: forge_ai
-    user: forge
-    postgresMajorVersion: "16"
-    plan: free
-    region: singapore
-    ipAllowList: []
