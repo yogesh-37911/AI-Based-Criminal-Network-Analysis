@@ -5,7 +5,7 @@ export const revalidate = 0;
 type RouteContext = { params: { path: string[] } };
 
 async function proxy(request: Request, { params }: RouteContext): Promise<Response> {
-  const backendUrl = process.env.NEXT_PUBLIC_API_URL?.replace(/\/+$/, "");
+  const backendUrl = (process.env.FORGE_BACKEND_URL || process.env.NEXT_PUBLIC_API_URL)?.replace(/\/+$/, "");
   if (!backendUrl) {
     return Response.json({ detail: "Backend API URL is not configured" }, { status: 503 });
   }

@@ -43,7 +43,9 @@ services:
     healthCheckPath: /
     autoDeploy: true
     envVars:
-      - key: NEXT_PUBLIC_API_URL
+      # This is read by the Next.js server proxy at runtime. Keep it server-only:
+      # NEXT_PUBLIC_* values are baked into the frontend during image build.
+      - key: FORGE_BACKEND_URL
         fromService:
           name: forge-ai-api
           type: web
