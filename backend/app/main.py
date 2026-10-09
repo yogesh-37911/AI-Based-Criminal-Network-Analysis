@@ -61,18 +61,22 @@ def on_startup():
         except Exception:
             pass
     Base.metadata.create_all(bind=engine)
-    # Pre-warm RAG embedder in background thread to eliminate first-query delay
-    try:
-        import threading
-        from app.services.rag_service import get_embedder
-        threading.Thread(target=get_embedder, daemon=True).start()
-    except Exception:
-        pass
 
 
 
 @app.get("/health")
 def health_check():
+    # Report readiness, not just process liveness. This lets the hosting
+    # platform stop routing requests to an instance whose database is down.
+    try:
+        with engine.connect() as conn:
+            conn.execute(text("SELECT 1"))
+    except Exception:
+        logger.exception("Backend health check failed while connecting to the database")
+        return JSONResponse(
+            status_code=503,
+            content={"status": "unavailable", "service": settings.APP_NAME},
+        )
     return {"status": "ok", "service": settings.APP_NAME}
 
 
