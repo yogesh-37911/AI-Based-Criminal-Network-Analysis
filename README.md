@@ -1,7 +1,7 @@
 # FORGE-AI
 ### AI-Powered Digital Forensic Investigation & Evidence Analysis Platform
 
-Built for Smart India Hackathon. FORGE-AI is an investigation-assistance
+ FORGE-AI is an investigation-assistance
 platform for cybercrime investigators — it ingests digital evidence,
 extracts entities, builds an investigation graph, constructs a forensic
 timeline, flags anomalies, and answers investigator questions strictly
